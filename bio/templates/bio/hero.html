@@ -1,0 +1,65 @@
+<section id="hero" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Hero Text Info -->
+            <div class="col-lg-7 order-2 order-lg-1" data-aos="fade-right">
+                <span class="hero-intro">Welcome to my Portfolio</span>
+                {% if bio %}
+                    <h1 class="hero-name">{{ bio.name }}</h1>
+                    <div class="hero-roles mb-3">
+                        <span id="typed-roles" data-roles="{{ bio.typing_roles }}"></span>
+                    </div>
+                    <p class="hero-summary lead">
+                        {{ bio.summary }}
+                    </p>
+                    <div class="hero-buttons mt-4">
+                        {% if bio.cv %}
+                            <a href="{{ bio.cv.url }}" download class="btn btn-premium btn-premium-primary me-md-3 mb-3 mb-md-0">
+                                <i class="fa-solid fa-download me-2"></i>Download CV
+                            </a>
+                        {% else %}
+                            <a href="#" class="btn btn-premium btn-premium-primary me-md-3 mb-3 mb-md-0 disabled" title="CV not uploaded yet">
+                                <i class="fa-solid fa-download me-2"></i>Download CV
+                            </a>
+                        {% endif %}
+                        <a href="#contact" class="btn btn-premium btn-premium-outline">
+                            <i class="fa-solid fa-paper-plane me-2"></i>Contact Me
+                        </a>
+                    </div>
+                {% else %}
+                    <!-- Fallback if database is empty -->
+                    <h1 class="hero-name">Laiba Tanseer</h1>
+                    <div class="hero-roles mb-3">
+                        <span id="typed-roles" data-roles="Computer Science Student, AI Enthusiast, Backend Developer, Problem Solver"></span>
+                    </div>
+                    <p class="hero-summary lead">
+                        Passionate Computer Science student at the University of Management and Technology (UMT) with a strong interest in Artificial Intelligence, Backend Development, and Problem Solving. I enjoy building intelligent and scalable software solutions using modern technologies.
+                    </p>
+                    <div class="hero-buttons mt-4">
+                        <a href="#" class="btn btn-premium btn-premium-primary me-md-3 mb-3 mb-md-0 disabled">
+                            <i class="fa-solid fa-download me-2"></i>Download CV
+                        </a>
+                        <a href="#contact" class="btn btn-premium btn-premium-outline">
+                            <i class="fa-solid fa-paper-plane me-2"></i>Contact Me
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Hero Profile Picture -->
+            <div class="col-lg-5 order-1 order-lg-2 text-center mb-5 mb-lg-0" data-aos="fade-left">
+                <div class="hero-profile-container">
+                    <div class="profile-backdrop-glow"></div>
+                    {% if bio and bio.profile_picture %}
+                        <img src="{{ bio.profile_picture.url }}" alt="{{ bio.name }}" class="hero-profile-picture">
+                    {% else %}
+                        <!-- Fallback avatar using dynamic styling -->
+                        <div class="hero-profile-picture d-flex align-items-center justify-content-center bg-dark text-white" style="font-size: 5rem; font-weight: 800; font-family: 'Outfit', sans-serif;">
+                            LT
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

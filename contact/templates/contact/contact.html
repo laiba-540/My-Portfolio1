@@ -1,0 +1,102 @@
+<section id="contact" class="section-padding">
+    <div class="container">
+        <div class="section-title-container">
+            <span class="section-subtitle">Get In Touch</span>
+            <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+        </div>
+        
+        <div class="row g-5">
+            <!-- Contact Info Panel -->
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="glass-card contact-info-card">
+                    <h3 class="contact-info-title">Let's Connect</h3>
+                    <p class="text-muted mb-5">
+                        Feel free to reach out to me for project collaborations, internship opportunities, or academic discussions. I am always open to discussing new ideas and technologies.
+                    </p>
+                    
+                    <!-- Email Contact Method -->
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Email Address</h5>
+                            <p>
+                                {% if bio and bio.email %}
+                                    <a href="mailto:{{ bio.email }}">{{ bio.email }}</a>
+                                {% else %}
+                                    <a href="mailto:laibtanser@gmail.com">laibtanser@gmail.com</a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- LinkedIn Contact Method -->
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>LinkedIn Profile</h5>
+                            <p>
+                                {% if bio and bio.linkedin %}
+                                    <a href="https://linkedin.com/in/{{ bio.linkedin }}" target="_blank">linkedin.com/in/{{ bio.linkedin }}</a>
+                                {% else %}
+                                    <a href="https://linkedin.com/in/laiba-tanseer" target="_blank">linkedin.com/in/laiba-tanseer</a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form Panel -->
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="glass-card contact-form-card">
+                    <form action="{% url 'contact:contact_submit' %}" method="POST" id="contactForm">
+                        {% csrf_token %}
+                        <div class="row g-4">
+                            <!-- Full Name -->
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="full_name" required placeholder="e.g. John Doe">
+                            </div>
+                            
+                            <!-- Email Address -->
+                            <div class="col-md-6">
+                                <label for="emailAddress" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="emailAddress" name="email" required placeholder="e.g. john@example.com">
+                            </div>
+                            
+                            <!-- Subject -->
+                            <div class="col-12">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required placeholder="Project Collaboration, Hiring, etc.">
+                            </div>
+                            
+                            <!-- Message -->
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-premium btn-premium-primary w-100 py-3">
+                                    <span class="contact-spinner spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    <span class="btn-text">Send Message</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Alert Success -->
+                    <div class="alert alert-success mt-4" id="contactSuccessAlert" role="alert"></div>
+                    
+                    <!-- Alert Error -->
+                    <div class="alert alert-danger mt-4" id="contactErrorAlert" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

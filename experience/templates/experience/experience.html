@@ -1,0 +1,44 @@
+<section id="experience" class="section-padding">
+    <div class="container">
+        <div class="section-title-container">
+            <span class="section-subtitle">Practical Experience</span>
+            <h2 class="section-title" data-aos="fade-up">Experience</h2>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="glass-card experience-card">
+                    {% if experience %}
+                        <h3 class="experience-title d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-briefcase text-primary"></i>
+                            {{ experience.title }}
+                        </h3>
+                        <div class="experience-desc">
+                            {{ experience.description|linebreaks }}
+                        </div>
+                    {% else %}
+                        <!-- Fallback Experience if database is empty -->
+                        <h3 class="experience-title d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-briefcase text-primary"></i>
+                            Personal Projects Experience
+                        </h3>
+                        <div class="experience-desc text-muted lead">
+                            <p>
+                                Developed multiple academic and personal software solutions using Python, Django, FastAPI, Artificial Intelligence, and database technologies. Gained practical experience through project-based learning, focusing on backend development, AI applications, database management, and software engineering best practices.
+                            </p>
+                            <p class="mt-3">
+                                Key Focus Areas:
+                            </p>
+                            <ul>
+                                <li>Designing robust database schemas and integrating SQL backends (SQLite/PostgreSQL) with Django ORM.</li>
+                                <li>Developing responsive client-side layouts using Bootstrap, CSS, and modern JavaScript.</li>
+                                <li>Implementing medical AI pipelines and deep learning systems for image classification.</li>
+                                <li>Building APIs with FastAPI and setting up web routing architectures.</li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

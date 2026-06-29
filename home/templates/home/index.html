@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Hero & Biography Section -->
+    <div id="hero-wrapper">
+        {% include 'bio/hero.html' %}
+    </div>
+
+    <!-- Education Section -->
+    <div id="education-wrapper">
+        {% include 'education/education.html' %}
+    </div>
+
+    <!-- Skills Section -->
+    <div id="skills-wrapper">
+        {% include 'skills/skills.html' %}
+    </div>
+
+    <!-- Experience Section -->
+    <div id="experience-wrapper">
+        {% include 'experience/experience.html' %}
+    </div>
+
+    <!-- Projects Showcase Section -->
+    <div id="projects-wrapper">
+        {% include 'projects/projects.html' %}
+    </div>
+
+    <!-- Contact & Form Section -->
+    <div id="contact-wrapper">
+        {% include 'contact/contact.html' %}
+    </div>
+{% endblock %}
