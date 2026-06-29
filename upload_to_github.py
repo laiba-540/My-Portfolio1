@@ -41,6 +41,10 @@ def main():
     run_cmd('git commit -m "Upload all Django files and folders"')
     print("[OK] Save commit created.")
     
+    print("\n5b. Setting branch name to main...")
+    run_cmd('git branch -M main')
+    print("[OK] Branch name set to main.")
+    
     print("\n6. Uploading to GitHub...")
     print("--> Note: If a popup appears asking you to sign in to GitHub, please click sign in to authorize the upload.")
     run_cmd('git push -f origin main')
